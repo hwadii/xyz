@@ -1,5 +1,4 @@
 #include "./string.hpp"
-#include <iostream>
 
 String String::char_at(int index) {
   try {
