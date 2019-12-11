@@ -1,8 +1,7 @@
-#include <iostream>
 #include "./string.hpp"
+#include <iostream>
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
   /* String s = String("hss-w-www-dd-ff"); */
   /* String sub = String("llo"); */
   /* String sep = String("-"); */
