@@ -8,9 +8,11 @@ String String::char_at(int index) {
   }
 }
 
-std::size_t String::index_of(String &s) { return _el.find(s.get_string()); }
+std::size_t String::index_of(const String &s) {
+  return _el.find(s.get_string());
+}
 
-bool String::includes(String &s) {
+bool String::includes(const String &s) {
   return _el.find(s.get_string()) == -1 ? false : true;
 }
 
@@ -18,7 +20,7 @@ String String::substring(size_t a, size_t b) {
   return String(_el.substr(a, b - a));
 }
 
-std::vector<String> String::split(String &sep) {
+std::vector<String> String::split(const String &sep) {
   std::string current = "";
   std::vector<String> substrs;
   size_t i = 0, next = 0;
@@ -28,6 +30,28 @@ std::vector<String> String::split(String &sep) {
     i = next + sep.len;
   }
   return substrs;
+}
+
+String String::concat(int first, ...) {
+  va_list vars;
+  va_start(vars, first);
+  std::string current;
+  std::string s(_el);
+  while ((current = va_arg(vars, std::string)) != "") {
+    s += current;
+  }
+  va_end(vars);
+  return String(s);
+}
+
+String &String::operator+=(const String &other) {
+  _el += other.get_string();
+  return *this;
+}
+
+String &String::operator=(const std::string &el) {
+  _el = el;
+  return *this;
 }
 
 std::ostream &operator<<(std::ostream &out, const String &s) {

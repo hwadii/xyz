@@ -3,6 +3,7 @@
 #include <string>
 #include <istream>
 #include <ostream>
+#include <cstdarg>
 
 class String
 {
@@ -14,14 +15,16 @@ class String
     /* String(const String&); */
     String(std::string el) : _el(el), len(el.size()) {};
     ~String() {};
-    inline std::string get_string() { return _el; } // ✅
+    inline std::string get_string() const { return _el; } // ✅
     String char_at(int); // ✅
-    std::size_t index_of(String&); // ✅
-    bool includes(String&); // ✅
+    std::size_t index_of(const String&); // ✅
+    bool includes(const String&); // ✅
     String substring(size_t, size_t); // ✅
-    std::vector<String> split(String&); // ✅
+    std::vector<String> split(const String&); // ✅
     String concat(int, ...);
-    String& operator+=(String&);
+    friend bool operator==(const String &s1, const String &s2) {return s1.get_string() == s2.get_string();}
+    friend bool operator!=(const String &s1, const String &s2) { return !(s1 == s2); }
+    String& operator+=(const String&);
     String& operator=(const std::string&);
     friend std::ostream& operator<<(std::ostream&, const String&);
     friend std::ostream& operator<<(std::ostream&, const std::vector<String>&);
