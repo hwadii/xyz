@@ -60,15 +60,11 @@ std::ostream &operator<<(std::ostream &out, const String &s) {
 }
 
 std::ostream &operator<<(std::ostream &out, const std::vector<String> &ss) {
-  int len = ss.size();
-  out << "[ ";
-  for (size_t i = 0; i < len; i++) {
-    if (i < len - 1)
-      out << ss.at(i) << ", ";
-    else
-      out << ss.at(i);
-  }
-  out << " ]";
+  auto format = [](const std::string &prev, const String &curr) {
+    return prev + ", " + curr.get_string();
+  };
+  std::string ret = std::accumulate(std::next(ss.begin()), ss.end(), ss.at(0).get_string(), format);
+  out << "[ " << ret << " ]";
   return out;
 }
 

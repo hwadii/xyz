@@ -1,6 +1,7 @@
 #include <cstdarg>
 #include <iostream>
 #include <istream>
+#include <numeric>
 #include <ostream>
 #include <string>
 #include <vector>
@@ -11,8 +12,7 @@ private:
 
 public:
   String() : _el(""), len(0){};
-  /* String(const String&); */
-  String(std::string el) : _el(el), len(el.size()){};
+  String(const std::string &el) : _el(el), len(el.size()){};
   ~String(){};
   inline std::string get_string() const { return _el; } // ✅
   String char_at(int);                                  // ✅
@@ -20,7 +20,8 @@ public:
   bool includes(const String &);                        // ✅
   String substring(size_t, size_t);                     // ✅
   std::vector<String> split(const String &);            // ✅
-  String concat(int, ...);
+  String concat(int, ...);                              // ✅
+
   friend bool operator==(const String &s1, const String &s2) {
     return s1.get_string() == s2.get_string();
   }
