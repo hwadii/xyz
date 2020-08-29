@@ -1,5 +1,5 @@
 require 'pathname'
-require_relative '../lib/lib'
+require_relative '../lib/relative_import.rb'
 require 'test/unit'
 
 class TestRelativeImport < Test::Unit::TestCase
@@ -30,6 +30,6 @@ class TestRelativeImport < Test::Unit::TestCase
 
   def test_compute_dots
     ri = RelativeImport.new(source: Pathname.new('./lib/math/math.js'), target: Pathname.new('./lib/lib.js'))
-    assert_equal(ri.compute_dots, ['..'])
+    assert_equal(ri.send(:compute_dots), ['..'])
   end
 end

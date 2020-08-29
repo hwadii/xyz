@@ -1,9 +1,7 @@
 class RelativeImport
-  attr_accessor :source, :target
-
   def initialize(source: nil, target: nil)
     raise ArgumentError.new("Source and target files should be defined. #{source.inspect} and #{target.inspect} given") if source.nil? || target.nil?
-    @source, _ = source.cleanpath.split
+    @source, = source.cleanpath.split
     @target, @target_basename = target.cleanpath.split
     @source = @source.each_filename.to_a
     @target = @target.each_filename.to_a
@@ -17,6 +15,8 @@ class RelativeImport
       Pathname.new(relpath.join('/')) + @target_basename
     end
   end
+
+  private
 
   def compute_dots
     while !@source.empty? && !@target.empty? && @source.first == @target.first
