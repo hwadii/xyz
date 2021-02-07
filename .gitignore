@@ -1,4 +1,4 @@
 *.o
 main
 node_modules
-/foo.ts
+foo.ts
