@@ -16,5 +16,9 @@ test("creates an array of arrays of values if multiple keys are given", (t) => {
     { x: 2, y: "world", z: true },
     { x: 3, y: "hello", z: false },
   ];
-  t.deepEqual(pluck(input, "x", "z"), [[1, true], [2, true], [3, false]]);
+  t.deepEqual(pluck(input, "x", "z"), [
+    [1, true],
+    [2, true],
+    [3, false],
+  ]);
 });
