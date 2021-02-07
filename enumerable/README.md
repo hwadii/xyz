@@ -7,8 +7,8 @@ Implement strictly typed versions of some of Ruby's (and Rails's) methods on `En
 ## TODO
 
 - [x] `index_with`, `index_by`
-- [ ] `pick`
-- [ ] `pluck`
+- [x] `pick`
+- [x] `pluck`
 - [ ] `sum`
 - [ ] ...
 
