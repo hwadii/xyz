@@ -1,3 +1,4 @@
 *.o
 main
 node_modules
+/foo.ts
