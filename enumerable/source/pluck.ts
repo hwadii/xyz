@@ -1,4 +1,4 @@
-// TODO: This should more type safe
+// TODO: This should be more type safe
 // It should infer the return type based on the number of arguments
 // e.g. if given 1 arg, return type should be Array<T[K]> else should be
 // Array<T[K][]>
