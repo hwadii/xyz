@@ -9,7 +9,7 @@ Implement strictly typed versions of some of Ruby's (and Rails's) methods on `En
 - [x] `index_with`, `index_by`
 - [x] `pick`
 - [x] `pluck`
-- [ ] `sum`
+- [x] `sum`
 - [ ] ...
 
 ## References
