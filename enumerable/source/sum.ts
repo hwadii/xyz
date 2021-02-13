@@ -1,4 +1,4 @@
-import { ConditionalKeys } from "..";
+import { ConditionalKeys } from "./util";
 
 export function sum<T, K extends ConditionalKeys<T, number>>(
   list: T[],

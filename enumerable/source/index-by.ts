@@ -1,4 +1,4 @@
-import { ConditionalKeys, DefaultRecord } from "..";
+import { ConditionalKeys, DefaultRecord } from "./util";
 
 export function indexBy<
   T,
