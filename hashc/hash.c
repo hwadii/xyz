@@ -22,8 +22,18 @@ int set(t_hash hm, uint key, int value) {
 }
 
 uint hash_key(t_hash m, uint key) {
-  key = ((key >> 16) ^ key) * 0x45d9f3b;
-  key = (key >> 16) ^ key;
+  /* Robert Jenkins' 32 bit Mix Function */
+  key += (key << 12);
+  key ^= (key >> 22);
+  key += (key << 4);
+  key ^= (key >> 9);
+  key += (key << 10);
+  key ^= (key >> 2);
+  key += (key << 7);
+  key ^= (key >> 12);
+
+  /* Knuth's Multiplicative Method */
+  key = (key >> 3) * 2654435761;
   return key % m->size;
 }
 
