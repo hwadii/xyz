@@ -4,12 +4,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef int* t_hash;
+typedef struct {
+  int *values;
+  uint size;
+} hash;
 
-t_hash init();
+typedef hash *t_hash;
+
+hash init();
 int get(t_hash, uint);
 int set(t_hash, uint, int);
-int hash(char *);
+uint hash_key(int);
 void print_map(t_hash);
 
 #endif

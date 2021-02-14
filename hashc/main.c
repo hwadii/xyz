@@ -13,10 +13,10 @@ int main(int argc, char **argv)
 }
 
 void test_hm() {
-  t_hash hm = init();
-  set(hm, 0, 1);
-  set(hm, 1, 2);
-  assert(get(hm, 0) == 1);
-  assert(get(hm, 1) == 2);
-  free(hm);
+  hash m = init();
+  set(&m, 0, 1);
+  set(&m, 1, 2);
+  assert(get(&m, 0) == 1);
+  assert(get(&m, 1) == 2);
+  free(m.values);
 }
