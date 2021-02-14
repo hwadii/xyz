@@ -7,7 +7,8 @@ hash init() {
 }
 
 int get(t_hash hm, uint key) {
-  return hm->values[key];
+  uint curr = hash_key(hm, key);
+  return hm->values[curr];
 }
 
 int set(t_hash hm, uint key, int value) {
@@ -15,8 +16,15 @@ int set(t_hash hm, uint key, int value) {
     hm->size = key;
     hm->values = realloc(hm->values, hm->size * sizeof(int));
   }
-  hm->values[key] = value;
+  uint curr = hash_key(hm, key);
+  hm->values[curr] = value;
   return value;
+}
+
+uint hash_key(t_hash m, uint key) {
+  key = ((key >> 16) ^ key) * 0x45d9f3b;
+  key = (key >> 16) ^ key;
+  return key % m->size;
 }
 
 void print_map(t_hash hm) {

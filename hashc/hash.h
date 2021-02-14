@@ -14,7 +14,7 @@ typedef hash *t_hash;
 hash init();
 int get(t_hash, uint);
 int set(t_hash, uint, int);
-uint hash_key(int);
+uint hash_key(t_hash, uint);
 void print_map(t_hash);
 
 #endif
