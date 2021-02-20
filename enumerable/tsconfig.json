@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
     "target": "es2019",
+    "outDir": "dist",
+    "rootDir": "source",
     "module": "commonjs",
     "moduleResolution": "node",
     "resolveJsonModule": true,
@@ -19,5 +21,11 @@
     "useDefineForClassFields": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
-  }
+  },
+  "include": ["source"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test"
+  ]
 }

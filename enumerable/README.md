@@ -10,6 +10,8 @@ Implement strictly typed versions of some of Ruby's (and Rails's) methods on `En
 - [x] `pick`
 - [x] `pluck`
 - [x] `sum`
+- [x] `including`
+- [x] `without`
 - [ ] ...
 
 ## References
