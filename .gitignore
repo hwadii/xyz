@@ -3,3 +3,6 @@ main
 node_modules
 foo.ts
 dist
+letters.txt
+mask.txt
+ref.txt
