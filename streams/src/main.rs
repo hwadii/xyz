@@ -4,7 +4,9 @@ use cmd_lib::{run_fun, run_cmd};
 fn main() -> io::Result<()> {
     let list_of_streams = fs::read_to_string(".streams")?;
     let stream_name = choose_stream(&list_of_streams)?;
-    execute_stream(&from_name(&stream_name))?;
+    if !stream_name.is_empty() {
+        execute_stream(&from_name(&stream_name))?;
+    }
     Ok(())
 }
 
